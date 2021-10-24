@@ -5,8 +5,6 @@ from .models import *
 
 
 class TaskForm(forms.ModelForm):
-	title= forms.CharField(max_length=250)
-
 	class Meta:
 		model = Task
 		fields = '__all__'
