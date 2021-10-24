@@ -11,7 +11,7 @@ def index(request):
 
 	form = TaskForm()
 	if request.method == 'POST':
-		form = TaskForm(request.POST)
+		form = TaskForm(request.POST or None, request.FILES or None)
 		if form.is_valid():
 			form.save()
 			return redirect('list')
@@ -22,11 +22,10 @@ def index(request):
 
 def updateTask(request, pk):
 	task = Task.objects.get(id=pk)
-
-	form = TaskForm(instance=task)
+	form = UpdateForm(instance=task)
 
 	if request.method == 'POST':
-		form = TaskForm(request.POST, instance=task)
+		form = UpdateForm(request.POST,request.FILES, instance=task)
 		if form.is_valid():
 			form.save()
 			return redirect('/')

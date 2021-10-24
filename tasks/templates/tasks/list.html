@@ -50,7 +50,7 @@
 <div class="center-column">
 
 	<form method="POST" action="/">
-		{% csrf_token %}
+		{% csrf_token %} 	
 		{{form.label}}
 		{{form}}
 		<input class="btn btn-info" type="submit" name="Create Task">
@@ -76,6 +76,7 @@
 			{% else %}
 			<span>{{task.description}}</span>
 			{% endif %}
+			<img src="C:\Users\Suyash Singh\Desktop\Ghost Of Tsushima\3b8gqq.jpg">
 		</div>
 	{% endfor %}
 	</div>
